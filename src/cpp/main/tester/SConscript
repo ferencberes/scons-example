@@ -1,4 +1,4 @@
 Import('env','COMMON_OBJ')
 env.Object(Glob('*.cc'))
 
-env.Program('tester', ['tester.cc'])
+env.Program('tester', ['tester.cc'] + COMMON_OBJ)

@@ -6,12 +6,10 @@
 #flags = ['-O3', '-g', '-ggdb', '-Wall']
 flags = [ '-g', '-ggdb', '-Wall']
 
-#env = Environment(
-#        CXX = 'g++',
-#        CCFLAGS = flags
-#)
-
-env = Environment()
+env = Environment(
+        CXX = 'g++',
+        CCFLAGS = flags
+)
 
 # building object dependencies
 SConscript(['main/counter/SConscript'], exports = ['env'])
