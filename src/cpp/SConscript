@@ -1,0 +1,22 @@
+# -O3 jobban optimalizal
+# -ggdb ezzel kell forditani, ha gdb-vel akarjuk debuggolni
+# -pg gprof miatt?
+# -g valgrind mint ?
+
+#flags = ['-O3', '-g', '-ggdb', '-Wall']
+flags = [ '-g', '-ggdb', '-Wall']
+
+#env = Environment(
+#        CXX = 'g++',
+#        CCFLAGS = flags
+#)
+
+env = Environment()
+
+# building object dependencies
+SConscript(['main/counter/SConscript'], exports = ['env'])
+COMMON_OBJ = Glob('#/../bin/main/counter/*.o')
+
+# building executable files
+SConscript(['main/tester/SConscript'], exports = ['env','COMMON_OBJ'])
+
